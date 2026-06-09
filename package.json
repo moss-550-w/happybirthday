@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Web 端 AR 互动生日贺卡：MindAR 图像追踪 + React Three Fiber",
+  "author": "MOSS",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "dev:https": "cross-env HTTPS_SPIKE=1 vite --host",
