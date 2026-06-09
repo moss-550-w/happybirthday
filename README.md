@@ -153,9 +153,24 @@ scripts/                    # gen-cake-glb / gen-icons（构建期工具）
 
 ## 📦 部署（GitHub Pages）
 
-1. `vite.config.ts` 已设 `base: './'`，兼容项目页子路径，无需写死仓库名
-2. `npm run build`，产物 `dist/`（含 `.nojekyll`、`sw.js`、`manifest.webmanifest`）
-3. 将 `dist/` 发布到 `gh-pages` 分支或 `main` 的 `/docs`
+本仓库已配置 GitHub Actions 自动部署（`.github/workflows/deploy.yml`）：
+推送到 `main` 即触发 **类型检查 → Lint → 构建 → 部署**。
+
+### 一次性设置
+
+1. GitHub 仓库 → **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**
+2. 推送到 `main`，Actions 自动构建并发布
+3. 访问 `https://moss-550-w.github.io/happybirthday/`
+
+> `vite.config.ts` 设 `base: './'`，产物全相对路径，天然兼容项目页子路径，
+> 无需写死仓库名。`dist/` 含 `.nojekyll`、`sw.js`、`manifest.webmanifest`。
+
+### 手动构建发布（可选）
+
+```bash
+npm run build   # → dist/
+# 将 dist/ 发布到 gh-pages 分支或 main 的 /docs
+```
 
 ### 资源 CDN 加速（可选）
 
