@@ -4,6 +4,19 @@
 
 基于 **MindAR 图像追踪 + React Three Fiber**，面向中低端移动设备优化，免安装、扫码即用、可离线。
 
+## 🔗 在线预览
+
+**👉 [https://moss-550-w.github.io/happybirthday/](https://moss-550-w.github.io/happybirthday/)**
+
+> 📱 **建议用手机访问**（需后置摄像头）。打开后点击屏幕 → 对准
+> [标记卡片](https://moss-550-w.github.io/happybirthday/targets/card.png)
+> 即可看到 3D 蛋糕与生日祝福。无卡片时可点「纯 3D 观看」手动旋转。
+>
+> 自定义祝福：`?name=Lisa&message=生日快乐` 追加到链接即可。
+
+[![Deploy](https://github.com/moss-550-w/happybirthday/actions/workflows/deploy.yml/badge.svg)](https://github.com/moss-550-w/happybirthday/actions/workflows/deploy.yml)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ---
 
 ## ✨ 特性
