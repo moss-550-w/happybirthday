@@ -1,0 +1,17 @@
+{
+  "name": "Friend",
+  "message": "Happy Birthday!",
+  "music": "",
+  "templates": [
+    {
+      "id": 1,
+      "name": "经典",
+      "message": "生日快乐！愿你被世界温柔以待"
+    },
+    {
+      "id": 2,
+      "name": "温馨",
+      "message": "又长大一岁，愿所有美好如期而至"
+    }
+  ]
+}
