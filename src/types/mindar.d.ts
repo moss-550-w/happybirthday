@@ -1,5 +1,6 @@
 // 最小类型声明：mind-ar 1.2.5 未随包发布 d.ts。
 // 仅声明方案①（底层 Controller）实际使用的成员；签名依据 dist 源码逆向。
+// mind-ar 锁死 1.2.5（Core API 无稳定 spec，见 SPIKE-M1.md P2）。
 declare module 'mind-ar/dist/mindar-image.prod.js' {
   export interface ControllerUpdate {
     type: 'updateMatrix' | string;
@@ -26,9 +27,7 @@ declare module 'mind-ar/dist/mindar-image.prod.js' {
     /** 列主序投影矩阵（16 元素） */
     getProjectionMatrix(): number[];
     /** 加载 .mind 目标，返回各目标的 [width, height] 归一化尺寸 */
-    addImageTargets(
-      url: string,
-    ): Promise<{ dimensions: [number, number][] }>;
+    addImageTargets(url: string): Promise<{ dimensions: [number, number][] }>;
     /** 预热 TF/GPU 管线 */
     dummyRun(video: HTMLVideoElement): Promise<void>;
     processVideo(video: HTMLVideoElement): void;
@@ -44,6 +43,10 @@ declare module 'mind-ar/dist/mindar-image.prod.js' {
   }
 
   export class UI {
-    constructor(options: { uiLoading?: string; uiScanning?: string; uiError?: string });
+    constructor(options: {
+      uiLoading?: string;
+      uiScanning?: string;
+      uiError?: string;
+    });
   }
 }

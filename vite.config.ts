@@ -26,5 +26,11 @@ export default defineConfig({
     outDir: 'dist',
     target: 'es2020',
     sourcemap: false,
+    // 分包（SPIKE-M1 P1）：依赖动态边界自动切分——
+    //   - ARCanvas/FallbackScene 经 React.lazy → three/R3F 进 async chunk
+    //   - mind-ar 经 arHelper 的 import() → tfjs 进 async chunk
+    // 首屏 entry 仅含 React 壳；不手动 manualChunks，避免 vite 预载辅助
+    // 函数被并入 vendor chunk 而令其被 eager 预载。
+    chunkSizeWarningLimit: 1800,
   },
 });

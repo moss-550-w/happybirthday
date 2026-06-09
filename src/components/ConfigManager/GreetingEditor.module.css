@@ -1,0 +1,115 @@
+.greeting {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.message {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffd166;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.name {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.editBtn {
+  margin-top: 6px;
+  padding: 5px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* 编辑面板 */
+.editorOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+}
+
+.panel {
+  width: 100%;
+  max-width: 420px;
+  background: #20203a;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  resize: none;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #ffd166;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btnGhost,
+.btnPrimary {
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.btnGhost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.btnPrimary {
+  background: #ffd166;
+  color: #20203a;
+  font-weight: 600;
+}

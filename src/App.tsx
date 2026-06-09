@@ -1,20 +1,23 @@
+import { ARProvider } from '@/components/ARScene/ARContext';
+import ARScene from '@/components/ARScene/ARScene';
 import { useConfig } from '@/components/ConfigManager/useConfig';
 import styles from './App.module.css';
 
 /**
- * 应用根组件（M0 占位）。
- * 后续里程碑将在此挂载手势激活覆盖层、ARScene 与降级模式。
+ * 应用根组件：AR 贺卡主流程。
+ * 首屏仅 React 壳 + 手势覆盖层（three/mind-ar 经 P1 懒加载）。
  */
 export default function App() {
   const config = useConfig();
 
   return (
-    <main className={styles.app}>
-      <h1 className={styles.title}>🎂 AR 生日贺卡</h1>
-      <p className={styles.greeting}>
-        {config.message}，{config.name}
-      </p>
-      <p className={styles.hint}>工程骨架已就绪（M0）。AR 体验将在后续里程碑接入。</p>
-    </main>
+    <ARProvider>
+      <ARScene />
+      {/* 祝福语浮层（M4 接入页内编辑） */}
+      <div className={styles.greeting}>
+        <span className={styles.message}>{config.message}</span>
+        <span className={styles.name}>致 {config.name}</span>
+      </div>
+    </ARProvider>
   );
 }

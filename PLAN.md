@@ -40,8 +40,8 @@
 |--------|-------------------|------|----------|
 | **M0 项目骨架** ✅ | Vite+React18+TS 工程跑通，目录/别名/lint/type-check/CI 就绪 | 1d | 低 |
 | **M1 集成 Spike** ✅ | 方案①验证通过（R1/R2 解决），见 `SPIKE-M1.md`；真机帧率待实测 | 2d | **极高（R1）** |
-| **M2 AR 追踪 + 3D 蛋糕** | **先做 P1 懒加载/分包**；真机识别，蛋糕跟随、浮动、`targetFound/Lost` | 3d | 高 |
-| **M3 特效/音频/性能降级** | Canvas2D 粒子、手势激活音频、帧率自动降级闭环 | 3d | 中 |
+| **M2 AR 追踪 + 3D 蛋糕** ✅ | P1 已解（首屏 ~51KB gzip）；状态机+arHelper+ARScene+CakeModel+容错；真机识别待实测 | 3d | 高 |
+| **M3 特效/音频/性能降级** ✅ | Canvas2D 粒子、手势激活音频、帧率自动降级闭环（阈值 25fps，真机待校准） | 3d | 中 |
 | **M4 配置 + 全量降级模式** | URL/JSON/localStorage 配置链、无 AR fallback、容错清单 7 项 | 2d | 中 |
 | **M5 联调与真机优化** | 必测设备 × 必测场景全过，达成性能指标 | 2d | 中 |
 | **M6 部署上线** | GitHub Pages + CDN 资源 + 首张标记图 + 使用文档 | 1d | 低 |
@@ -128,7 +128,7 @@ M0 骨架
 
 | ID | 风险 | 状态 | 对策 |
 |----|------|------|------|
-| **P1** | mind-ar 内置 tfjs，bundle 2.73MB/570KB gzip，违背首屏 <2s | **M2 必处理** | `import()` 懒加载 + manualChunks 分离 tfjs/three |
+| **P1** | mind-ar 内置 tfjs，bundle 2.73MB/570KB gzip，违背首屏 <2s | ✅ M2 已解 | React.lazy(ARCanvas)+import(mind-ar)；**首屏 entry 仅 ~51KB gzip**，three/mindar 激活后才下载。注：不可用 manualChunks（会把 vite 预载辅助并入 vendor 致 eager 预载） |
 | P2 | MindAR Core API 无稳定 spec | 已缓解 | 锁死 `mind-ar@1.2.5` + 自维护类型 |
 | P3 | `canvas` native 需 VS 编译 | 已解决 | overrides → `@napi-rs/canvas` |
 
