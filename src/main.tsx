@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+// M1 Spike：临时入口指向集成验证页；M2 起恢复为 './App'。
+import App from './spike/SpikeApp';
 import './index.css';
 
 const rootEl = document.getElementById('root');

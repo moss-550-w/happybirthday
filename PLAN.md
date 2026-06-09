@@ -38,9 +38,9 @@
 
 | 里程碑 | 目标（可验证产出） | 预估 | 关键风险 |
 |--------|-------------------|------|----------|
-| **M0 项目骨架** | Vite+React18+TS 工程跑通，目录/别名/lint/type-check/CI 就绪 | 1d | 低 |
-| **M1 集成 Spike（最高优先）** | MindAR 与 R3F 集成方案验证通过，真机出帧率数据 | 2d | **极高（R1）** |
-| **M2 AR 追踪 + 3D 蛋糕** | 真机识别卡片，蛋糕跟随、浮动、`targetFound/Lost` 生效 | 3d | 高 |
+| **M0 项目骨架** ✅ | Vite+React18+TS 工程跑通，目录/别名/lint/type-check/CI 就绪 | 1d | 低 |
+| **M1 集成 Spike** ✅ | 方案①验证通过（R1/R2 解决），见 `SPIKE-M1.md`；真机帧率待实测 | 2d | **极高（R1）** |
+| **M2 AR 追踪 + 3D 蛋糕** | **先做 P1 懒加载/分包**；真机识别，蛋糕跟随、浮动、`targetFound/Lost` | 3d | 高 |
 | **M3 特效/音频/性能降级** | Canvas2D 粒子、手势激活音频、帧率自动降级闭环 | 3d | 中 |
 | **M4 配置 + 全量降级模式** | URL/JSON/localStorage 配置链、无 AR fallback、容错清单 7 项 | 2d | 中 |
 | **M5 联调与真机优化** | 必测设备 × 必测场景全过，达成性能指标 | 2d | 中 |
@@ -123,6 +123,14 @@ M0 骨架
 | R5 | 微信内置浏览器 WebGL2/getUserMedia 缺失 | 部分用户不可用 | 检测能力 → 引导外部浏览器打开 + 纯 3D fallback |
 
 > **R1 是本项目成败关键**，M1 未通过前不进入 M2，避免返工。
+
+### M1 Spike 新增风险（详见 SPIKE-M1.md）
+
+| ID | 风险 | 状态 | 对策 |
+|----|------|------|------|
+| **P1** | mind-ar 内置 tfjs，bundle 2.73MB/570KB gzip，违背首屏 <2s | **M2 必处理** | `import()` 懒加载 + manualChunks 分离 tfjs/three |
+| P2 | MindAR Core API 无稳定 spec | 已缓解 | 锁死 `mind-ar@1.2.5` + 自维护类型 |
+| P3 | `canvas` native 需 VS 编译 | 已解决 | overrides → `@napi-rs/canvas` |
 
 ---
 
