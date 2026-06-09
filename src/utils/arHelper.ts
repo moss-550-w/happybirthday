@@ -1,4 +1,5 @@
 import type { CameraParams } from '@/components/ARScene/arTypes';
+import { isWebGLSupported } from './performance';
 
 export class ARError extends Error {
   kind: 'unsupported' | 'permission' | 'init' | 'unknown';
@@ -93,6 +94,9 @@ export async function startARSession(
 
   if (!navigator.mediaDevices?.getUserMedia) {
     throw new ARError('unsupported', '当前浏览器不支持摄像头');
+  }
+  if (!isWebGLSupported()) {
+    throw new ARError('unsupported', '当前浏览器不支持 WebGL');
   }
 
   // 懒加载 mind-ar（含 tfjs），首屏不下载

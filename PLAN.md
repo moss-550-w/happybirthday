@@ -42,7 +42,7 @@
 | **M1 集成 Spike** ✅ | 方案①验证通过（R1/R2 解决），见 `SPIKE-M1.md`；真机帧率待实测 | 2d | **极高（R1）** |
 | **M2 AR 追踪 + 3D 蛋糕** ✅ | P1 已解（首屏 ~51KB gzip）；状态机+arHelper+ARScene+CakeModel+容错；真机识别待实测 | 3d | 高 |
 | **M3 特效/音频/性能降级** ✅ | Canvas2D 粒子、手势激活音频、帧率自动降级闭环（阈值 25fps，真机待校准） | 3d | 中 |
-| **M4 配置 + 全量降级模式** | URL/JSON/localStorage 配置链、无 AR fallback、容错清单 7 项 | 2d | 中 |
+| **M4 配置 + 全量降级模式** ✅ | URL/JSON/localStorage 配置链、页内编辑、WebGL 检测、容错清单 7 项 | 2d | 中 |
 | **M5 联调与真机优化** | 必测设备 × 必测场景全过，达成性能指标 | 2d | 中 |
 | **M6 部署上线** | GitHub Pages + CDN 资源 + 首张标记图 + 使用文档 | 1d | 低 |
 
