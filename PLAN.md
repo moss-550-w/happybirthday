@@ -43,7 +43,9 @@
 | **M2 AR 追踪 + 3D 蛋糕** ✅ | P1 已解（首屏 ~51KB gzip）；状态机+arHelper+ARScene+CakeModel+容错；真机识别待实测 | 3d | 高 |
 | **M3 特效/音频/性能降级** ✅ | Canvas2D 粒子、手势激活音频、帧率自动降级闭环（阈值 25fps，真机待校准） | 3d | 中 |
 | **M4 配置 + 全量降级模式** ✅ | URL/JSON/localStorage 配置链、页内编辑、WebGL 检测、容错清单 7 项 | 2d | 中 |
-| **M5 联调与真机优化** | 必测设备 × 必测场景全过，达成性能指标 | 2d | 中 |
+| **GLB 接入**（M5 预备）✅ | useCakeModel(5s超时+dispose)、GLB/程序化双路、生成 cake.glb 验证 | — | 低 |
+| **M5 离线缓存**（工程侧）✅ | vite-plugin-pwa：壳 precache(251KiB) + 重资源运行时 CacheFirst；manifest/图标/更新提示 | — | 低 |
+| **M5 联调与真机优化** | 必测设备 × 必测场景全过，达成性能指标（真机，需用户实测） | 2d | 中 |
 | **M6 部署上线** | GitHub Pages + CDN 资源 + 首张标记图 + 使用文档 | 1d | 低 |
 
 > 总计约 14 人日（含 M1 spike 比 design.md 多 1 天，用于前置消解最大风险）。

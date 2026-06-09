@@ -2,6 +2,7 @@ import { ConfigProvider } from '@/components/ConfigManager/ConfigContext';
 import GreetingEditor from '@/components/ConfigManager/GreetingEditor';
 import { ARProvider } from '@/components/ARScene/ARContext';
 import ARScene from '@/components/ARScene/ARScene';
+import UpdatePrompt from '@/components/UpdatePrompt/UpdatePrompt';
 
 /**
  * 应用根组件：AR 贺卡主流程。
@@ -13,6 +14,7 @@ export default function App() {
       <ARProvider>
         <ARScene />
         <GreetingEditor />
+        <UpdatePrompt />
       </ARProvider>
     </ConfigProvider>
   );
